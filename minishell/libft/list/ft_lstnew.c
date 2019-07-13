@@ -6,7 +6,7 @@
 /*   By: tescriva <tescriva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 15:44:16 by tescriva          #+#    #+#             */
-/*   Updated: 2018/09/25 10:44:36 by thescriv         ###   ########.fr       */
+/*   Updated: 2019/07/13 22:56:41 by erwepifa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 		n->next = NULL;
 		return (n);
 	}
-	n->content = (t_list*)malloc(sizeof(*n->content) * content_size);
+	n->content = (t_list*)malloc(sizeof(*n->content) * content_size + 1);
 	if (!n->content)
 		return (NULL);
 	ft_memcpy(n->content, content, content_size);

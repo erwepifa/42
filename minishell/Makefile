@@ -6,7 +6,7 @@
 #    By: erwepifa <erwepifa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/17 13:47:27 by erwepifa          #+#    #+#              #
-#    Updated: 2019/07/10 23:22:19 by erwepifa         ###   ########.fr        #
+#    Updated: 2019/07/13 21:37:23 by erwepifa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,10 @@ SRCS = 	main.c \
 		options.c \
 		echo.c \
 		access.c \
+		check_cd.c \
+		cd.c \
+		free_tab.c \
+
 
 
 OBJS = $(SRCS:.c=.o)

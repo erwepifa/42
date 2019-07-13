@@ -6,7 +6,7 @@
 /*   By: erwepifa <erwepifa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 23:22:03 by erwepifa          #+#    #+#             */
-/*   Updated: 2019/07/10 23:39:44 by erwepifa         ###   ########.fr       */
+/*   Updated: 2019/07/13 23:13:39 by erwepifa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,21 @@ char    *access_dir(char *str)
     return (NULL);
 }
 
+int     access_exec(char *cmd, char *tab)
+{
+    char    *name;
+
+    name = ft_sous_d(cmd, tab);
+    if (access(cmd, X_OK) == -1)
+    {
+        ft_strdel(&name);
+        ft_error("minishell: executable has permission denied ", tab);
+		return (-1);
+	}
+	ft_strdel(&name);
+	return (0);
+}
+
 int     search_exec(char *cmd, char *tab)
 {
     DIR     *dir;
@@ -43,6 +58,9 @@ int     search_exec(char *cmd, char *tab)
             if (ft_strequ(g->d_name, tab))
             {
                 closedir(dir);
+                if (access_exec(cmd, tab) == -1)
+					return (-2);
+				return (0);
             }
         }
     }
@@ -60,15 +78,16 @@ char    *parsing_cmd(char   **cmd, char **tab)
     i = 0;
     j = -1;
     access = 0;
-    *tab = NULL;
     if (!cmd)
     {
         ft_putstr("minishell: command not found: ");
         return (NULL);
     }
+    while (cmd[i] && j != 0)
+        j = search_exec(cmd[i++], *tab);
     if (j == -1)
     {
-        ft_putstr("minishell: command not found: ");
+        ft_error("minishell: command not found: ", *tab);
         return (NULL);
     }
     else if (j == 2)

@@ -6,7 +6,7 @@
 /*   By: erwepifa <erwepifa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 13:54:24 by erwepifa          #+#    #+#             */
-/*   Updated: 2019/07/10 23:26:28 by erwepifa         ###   ########.fr       */
+/*   Updated: 2019/07/13 23:21:01 by erwepifa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,32 @@
 # include <errno.h>
 # include "libft/libft.h"
 
+
+typedef struct	s_flag
+{
+	int				rec;
+	int				r;
+	int				t;
+	int				a;
+	int				flag;
+	int				i;
+	int				io;
+	int				j;
+	int				uid;
+	int				gid;
+	char			*name;
+	char			*new;
+	int				o;
+	char			*c;
+	char			*ret;
+	char			*hate;
+}				t_flag;
+
+
+
+char		*ft_sous_d_ex(char *s2, t_flag m);
+char		*ft_sous_d(char *s1, char *s2);
+int		ft_error(char *s1, char *name);
 /* env.c */
 char	*ft_souder(char *s1, char *s2, char *s3);
 char    **set_env(char **tab, char **env);
@@ -63,5 +89,26 @@ void    cmd_echo(char **tab);
 /* access.c */
 
 char    *access_dir(char *str);
+int     search_exec(char *cmd, char *tab);
+char    *parsing_cmd(char   **cmd, char **tab);
+
+
+
+char    **cmd_cd(char **env);
+int     access_cd(char *str, char **tab);
+char    **run_cd(char *str, char **env, char **tab);
+
+
+/* free_tab */
+
+char		**free_all_tab(char **av);
+int     access_exec(char *cmd, char *tab);
+
+/* a trier */
+char    **check_pwd_for_cd(char **env);
+char    **check_oldpwd_for_cd(char **env);
+char    **get_oldpwd(char **env, char *str);
+char    **check_cd_home(char **env);
+char 	**exec_final(char **cmd, char **env, char **tab);
 
 #endif

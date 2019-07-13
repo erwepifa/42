@@ -6,7 +6,7 @@
 /*   By: thescriv <thescriv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 17:48:46 by thescriv          #+#    #+#             */
-/*   Updated: 2019/07/10 20:28:18 by erwepifa         ###   ########.fr       */
+/*   Updated: 2019/07/13 21:55:52 by erwepifa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,22 @@
 # define HEXM "0123456789abcdef"
 # define OCTAL "012345678"
 # define DEC "0123456789"
+
+
+typedef struct	s_stock
+{
+	char		p[BUFF_SIZE + 1];
+	char		*save;
+	int			ret;
+	int			total;
+	char		*tmp_swap;
+	char		*result;
+	int			o;
+	int			i;
+}				t_stock;
+
+int				gnl(const int fd, char **line);
+
 
 typedef struct	s_list
 {

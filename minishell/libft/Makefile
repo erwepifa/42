@@ -6,13 +6,14 @@
 #    By: tescriva <tescriva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/17 19:08:17 by tescriva          #+#    #+#              #
-#    Updated: 2019/07/10 20:28:14 by erwepifa         ###   ########.fr        #
+#    Updated: 2019/07/13 21:56:29 by erwepifa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-FT = int/ft_atoi.c \
+FT = gnl.c \
+ int/ft_atoi.c \
 	int/ft_intlen.c \
 	int/ft_intlen_base.c \
 	int/ft_itoa_base.c \
@@ -101,7 +102,8 @@ FT = int/ft_atoi.c \
 	ft_pf/unsigned.c\
 
 
-OBJ = ft_strccmp.o \
+OBJ = gnl.o \
+ ft_strccmp.o \
 	ft_strjoin2.o \
 	ft_strccpy.o \
  	ft_split.o \
