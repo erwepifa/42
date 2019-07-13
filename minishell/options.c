@@ -6,7 +6,7 @@
 /*   By: erwepifa <erwepifa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 21:24:25 by erwepifa          #+#    #+#             */
-/*   Updated: 2019/07/13 22:53:56 by erwepifa         ###   ########.fr       */
+/*   Updated: 2019/07/13 23:35:54 by erwepifa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,13 @@ char    **env_builtin(char **env, char **tab)
     char    **cmd;
 
     cmd = NULL;
-    if (ft_strequ("setenv", *tab))
-        env = set_env(tab, env);
 	if (ft_strequ("unsetenv", *tab))
 		env = unset_env(tab, env);
+	else if (ft_strequ("setenv", *tab) == 1)
+		env = set_env(tab, env);
 	else
 	{
-		cmd = exec_final(cmd, env, tab);
+//		cmd = exec_final(cmd, env, tab);
 		if (cmd)
 			free_all_tab(cmd);
 	}
@@ -76,9 +76,9 @@ char    **check_builtin(char *line, char **env, char **tab)
 {
     if (ft_strequ(line, "env"))
         print_env(env);
-	if (ft_strequ(tab[0], "echo"))
+	else if (ft_strequ(tab[0], "echo"))
 		cmd_echo(tab);
-	if (ft_strequ(tab[0], "cd"))
+	else if (ft_strequ(tab[0], "cd"))
 		run_cd(line, env, tab);
     else
         env = env_builtin(env, tab);

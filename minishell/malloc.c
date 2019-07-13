@@ -6,7 +6,7 @@
 /*   By: erwepifa <erwepifa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 19:43:13 by erwepifa          #+#    #+#             */
-/*   Updated: 2019/07/10 22:50:28 by erwepifa         ###   ########.fr       */
+/*   Updated: 2019/07/13 23:39:16 by erwepifa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char    **malloc_setenv(char **env, char *tab)
         ;
     if (!(ret = (char**)malloc(sizeof(char*) * (i + 2))))
         return (NULL);
-    ret[i] = 0;
+    ret[i + 1] = 0;
     i = 0;
     while (env[i])
 	{

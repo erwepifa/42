@@ -6,7 +6,7 @@
 /*   By: erwepifa <erwepifa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 19:54:38 by erwepifa          #+#    #+#             */
-/*   Updated: 2019/07/13 23:20:13 by erwepifa         ###   ########.fr       */
+/*   Updated: 2019/07/13 23:31:41 by erwepifa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,7 @@ char    **set_env(char **tab, char **env)
 	}
 	if (!tab[2] || tab[3])
     {
-        ft_putstr("usage: setenv [variable] [argument]");
-		ft_putstr("\n");
+        ft_error("usage: setenv [variable] [argument]", NULL);
         return (env);
     }
     while (env[++i])
@@ -85,8 +84,7 @@ char 	**unset_env(char **tab, char **env)
 	j = 0;
 	if (!tab[1])
 	{
-		ft_putstr("unsetenv: Too few arguments.");
-		ft_putstr("\n");
+		ft_error("usage: unsetenv [variable ...]", NULL);
 		return (env);
 	}
 	while (tab[i])

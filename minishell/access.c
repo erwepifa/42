@@ -6,7 +6,7 @@
 /*   By: erwepifa <erwepifa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 23:22:03 by erwepifa          #+#    #+#             */
-/*   Updated: 2019/07/13 23:13:39 by erwepifa         ###   ########.fr       */
+/*   Updated: 2019/07/13 23:29:04 by erwepifa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ char    *parsing_cmd(char   **cmd, char **tab)
     access = 0;
     if (!cmd)
     {
-        ft_putstr("minishell: command not found: ");
+        ft_error("minishell: command not found       : ", *tab);
         return (NULL);
     }
     while (cmd[i] && j != 0)

@@ -6,7 +6,7 @@
 /*   By: erwepifa <erwepifa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 20:34:06 by erwepifa          #+#    #+#             */
-/*   Updated: 2019/07/13 23:23:54 by erwepifa         ###   ########.fr       */
+/*   Updated: 2019/07/13 23:50:32 by erwepifa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void    print_env(char **tab)
     while (tab[++i])
         ft_putendl(tab[i]);
 }
-
 
 char    *get_user(char **env)
 {
@@ -56,7 +55,6 @@ char    *get_pwd(char **env)
                 return (NULL);
             return (str);
         }
-
     }
     return (NULL);
 }
@@ -88,13 +86,14 @@ void    print_minishell(char **env)
     char    **tab;
     char    *line;
 
-
+    line = ft_strdup("");
     tab = NULL;
+    char *tmp = "minishell";
     while (1)
     {
-        line = ft_strdup("");
         write_prompt(env);
         get_next_line(0, &line);
+        printf("%s\n", line);
         line = ft_suppr_tab(line);
         tab = ft_strsplit(line, ' ');
         if (ft_strequ(*tab, "exit"))
@@ -106,8 +105,9 @@ void    print_minishell(char **env)
         }
         if (ft_find_material(line) == 1)
             env = check_builtin(line, env, tab);
-        printf("%s\n", line);
+
         ft_strdel(&line);
+        printf("%s\n", line);
         free_all_tab(tab);
     }
     free_all_tab(env);
