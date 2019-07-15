@@ -6,7 +6,7 @@
 /*   By: erwepifa <erwepifa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 20:37:54 by erwepifa          #+#    #+#             */
-/*   Updated: 2019/07/13 21:17:50 by erwepifa         ###   ########.fr       */
+/*   Updated: 2019/07/15 21:05:22 by erwepifa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,6 +164,7 @@ int     access_cd(char *str, char **tab)
 char    **run_cd(char *str, char **env, char **tab)
 {
     int     i;
+    char    *tmp;
 
     i = -1;
     if (access_cd(str, tab) == -1)

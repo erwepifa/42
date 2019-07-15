@@ -6,11 +6,40 @@
 /*   By: erwepifa <erwepifa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 21:24:25 by erwepifa          #+#    #+#             */
-/*   Updated: 2019/07/13 23:35:54 by erwepifa         ###   ########.fr       */
+/*   Updated: 2019/07/13 23:56:18 by erwepifa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+char	*ft_strjoin2(char const *s1, char const *s2)
+{
+	int		i;
+	int		o;
+	char	*p;
+
+	o = 0;
+	i = 0;
+	if (!(s1) || (!(s2)))
+		return (NULL);
+	while (s1[i])
+		i++;
+	while (s2[o])
+		o++;
+	if (!(p = (char*)malloc(sizeof(*p) * (i + o) + 1)))
+		return (NULL);
+	i = 0;
+	o = 0;
+	while (s1[i])
+	{
+		p[i] = s1[i];
+		i++;
+	}
+	while (s2[o])
+		p[i++] = s2[o++];
+	p[i] = '\0';
+	return (p);
+}
 
 char	*ft_suppr_tab(char *line)
 {
@@ -65,7 +94,7 @@ char    **env_builtin(char **env, char **tab)
 		env = set_env(tab, env);
 	else
 	{
-//		cmd = exec_final(cmd, env, tab);
+		cmd = exec_final(cmd, env, tab);
 		if (cmd)
 			free_all_tab(cmd);
 	}

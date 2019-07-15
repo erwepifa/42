@@ -6,12 +6,12 @@
 /*   By: erwepifa <erwepifa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 19:39:13 by erwepifa          #+#    #+#             */
-/*   Updated: 2019/07/10 21:41:14 by erwepifa         ###   ########.fr       */
+/*   Updated: 2019/07/13 23:59:53 by erwepifa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
+/*
 static char		**ft_cpy_db_tab(char **env)
 {
 	char	**ret;
@@ -30,7 +30,7 @@ static char		**ft_cpy_db_tab(char **env)
 	ret[o] = 0;
 	return (ret);
 }
-
+*/
 int     main(int ac, char **av, char **env)
 {
     char **envd;

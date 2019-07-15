@@ -6,7 +6,7 @@
 /*   By: erwepifa <erwepifa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 13:54:24 by erwepifa          #+#    #+#             */
-/*   Updated: 2019/07/13 23:21:01 by erwepifa         ###   ########.fr       */
+/*   Updated: 2019/07/15 21:26:20 by erwepifa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,27 +29,7 @@
 # include "libft/libft.h"
 
 
-typedef struct	s_flag
-{
-	int				rec;
-	int				r;
-	int				t;
-	int				a;
-	int				flag;
-	int				i;
-	int				io;
-	int				j;
-	int				uid;
-	int				gid;
-	char			*name;
-	char			*new;
-	int				o;
-	char			*c;
-	char			*ret;
-	char			*hate;
-}				t_flag;
-
-
+char	*ft_strjoin2(char const *s1, char const *s2);
 
 char		*ft_sous_d_ex(char *s2, t_flag m);
 char		*ft_sous_d(char *s1, char *s2);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erwepifa <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: erwepifa <erwepifa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/15 12:31:26 by erwepifa          #+#    #+#             */
-/*   Updated: 2018/11/27 14:44:21 by erwepifa         ###   ########.fr       */
+/*   Updated: 2019/07/15 21:18:55 by erwepifa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,25 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <string.h>
+# include <fcntl.h>
+# include <sys/uio.h>
+# include <sys/types.h>
+
+# define BUFF_SIZE 1
+
+typedef struct	s_stock
+{
+	char		p[BUFF_SIZE + 1];
+	char		*save;
+	int			ret;
+	int			total;
+	char		*tmp_swap;
+	char		*result;
+	int			o;
+	int			i;
+}				t_stock;
+
+int				get_next_line(const int fd, char **line);
 
 typedef struct		s_list
 {
@@ -68,7 +87,10 @@ int					ft_strcmp(const char *s1, const char *s2);
 size_t				ft_strlen(const char *s);
 int					ft_strequ(char const *s1, char const *s2);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
+int					ft_check_str(char *s, int c);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
+char				*ft_strjoin2(char const *s1, char const *s2);
+char				**ft_cpy_db_tab(char **env);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strcpy(char *dest, const char *src);
 char				*ft_strncpy(char *dst, const char *src, size_t len);

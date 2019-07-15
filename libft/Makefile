@@ -3,16 +3,19 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: erwepifa <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: erwepifa <erwepifa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 12:30:02 by erwepifa          #+#    #+#              #
-#    Updated: 2018/11/27 14:43:41 by erwepifa         ###   ########.fr        #
+#    Updated: 2019/07/15 21:16:44 by erwepifa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 HEADERS = libft.h
 
-SRCS = ft_memset.c \
+SRCS =	ft_check_str.c \
+ 		ft_strjoin2.c \
+ 		ft_cpy_db_tab.c \
+		ft_memset.c \
 	   	ft_bzero.c \
 		ft_memcpy.c \
 		ft_memccpy.c \

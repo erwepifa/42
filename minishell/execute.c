@@ -6,27 +6,13 @@
 /*   By: erwepifa <erwepifa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 20:43:43 by erwepifa          #+#    #+#             */
-/*   Updated: 2019/07/13 23:38:45 by erwepifa         ###   ########.fr       */
+/*   Updated: 2019/07/14 00:01:10 by erwepifa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static int			ft_check_str(char *s, int c)
-{
-	int		i;
 
-	i = 0;
-	if (!s)
-		return (0);
-	while (s[i])
-	{
-		if (s[i] == c)
-			return (1);
-		i++;
-	}
-	return (0);
-}
 
 char    **check_path(char **env)
 {
