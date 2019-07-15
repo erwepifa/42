@@ -6,22 +6,22 @@
 /*   By: erwepifa <erwepifa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 21:45:20 by erwepifa          #+#    #+#             */
-/*   Updated: 2019/07/13 20:24:08 by erwepifa         ###   ########.fr       */
+/*   Updated: 2019/07/15 21:38:57 by erwepifa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void    cmd_echo(char **tab)
+void	cmd_echo(char **tab)
 {
-    int     i;
+	int		i;
 
-    i = 1;
-    while (tab[i])
-    {
-        ft_putstr(tab[i]);
-        if (tab[++i])
-            ft_putstr(" ");
-    }
-    ft_putendl("");
+	i = 1;
+	while (tab[i])
+	{
+		ft_putstr(tab[i]);
+		if (tab[++i])
+			ft_putstr(" ");
+	}
+	ft_putendl("");
 }

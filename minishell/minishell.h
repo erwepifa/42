@@ -6,7 +6,7 @@
 /*   By: erwepifa <erwepifa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 13:54:24 by erwepifa          #+#    #+#             */
-/*   Updated: 2019/07/15 21:26:20 by erwepifa         ###   ########.fr       */
+/*   Updated: 2019/07/15 21:51:02 by erwepifa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,12 @@
 # include "libft/libft.h"
 
 
-char	*ft_strjoin2(char const *s1, char const *s2);
 
-char		*ft_sous_d_ex(char *s2, t_flag m);
-char		*ft_sous_d(char *s1, char *s2);
-int		ft_error(char *s1, char *name);
-/* env.c */
-char	*ft_souder(char *s1, char *s2, char *s3);
+int     ft_error(char *s1, char *name);
+char    *ft_souder(char *s1, char *s2, char *s3);
 char    **set_env(char **tab, char **env);
-char 	**unset_env(char **tab, char **env);
+char    **unset_env(char **tab, char **env);
 
-/* execute.c */
 
 char    **check_path(char **env);
 int     check_tab(char **tab);
@@ -51,8 +46,8 @@ char    **malloc_setenv(char **env, char *tab);
 char    **malloc_unsetenv(char **env, int value);
 
 /* options.c */
-char	*ft_suppr_tab(char *line);
-int		ft_find_material(char *str);
+char    *ft_suppr_tab(char *line);
+int     ft_find_material(char *str);
 char    **env_builtin(char **env, char **tab);
 char    **check_builtin(char *line, char **env, char **tab);
 
@@ -81,7 +76,7 @@ char    **run_cd(char *str, char **env, char **tab);
 
 /* free_tab */
 
-char		**free_all_tab(char **av);
+char    **free_all_tab(char **av);
 int     access_exec(char *cmd, char *tab);
 
 /* a trier */
@@ -89,6 +84,6 @@ char    **check_pwd_for_cd(char **env);
 char    **check_oldpwd_for_cd(char **env);
 char    **get_oldpwd(char **env, char *str);
 char    **check_cd_home(char **env);
-char 	**exec_final(char **cmd, char **env, char **tab);
+char    **exec_final(char **cmd, char **env, char **tab);
 
 #endif

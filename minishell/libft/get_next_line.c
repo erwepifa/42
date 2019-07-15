@@ -6,13 +6,13 @@
 /*   By: erwepifa <erwepifa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/15 21:17:34 by erwepifa          #+#    #+#             */
-/*   Updated: 2019/07/15 21:18:29 by erwepifa         ###   ########.fr       */
+/*   Updated: 2019/07/15 21:35:01 by erwepifa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*ft_strndup(char *s, int flag)
+static	char	*ft_strndup(char *s, int flag)
 {
 	t_stock r;
 
@@ -27,7 +27,7 @@ static char	*ft_strndup(char *s, int flag)
 	return (NULL);
 }
 
-static char	*ft_realloc(char *s)
+static	char	*ft_realloc(char *s)
 {
 	int			i;
 	int			o;
@@ -54,7 +54,7 @@ static char	*ft_realloc(char *s)
 	return (ret);
 }
 
-static int		suply_fonction(t_stock r, char **line, char **tmp)
+static	int		suply_fonction(t_stock r, char **line, char **tmp)
 {
 	if (r.ret == -1)
 		return (-1);
@@ -82,7 +82,7 @@ static int		suply_fonction(t_stock r, char **line, char **tmp)
 	return (0);
 }
 
-static int		ft_loop(t_stock *r, char **tmp)
+static	int		ft_loop(t_stock *r, char **tmp)
 {
 	r->total += r->ret;
 	r->p[r->ret] = '\0';
@@ -100,7 +100,7 @@ static int		ft_loop(t_stock *r, char **tmp)
 	return (0);
 }
 
-int		get_next_line(int fd, char **line)
+int				get_next_line(int fd, char **line)
 {
 	t_stock		r;
 	static char	*tmp;

@@ -6,65 +6,63 @@
 /*   By: erwepifa <erwepifa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 20:43:43 by erwepifa          #+#    #+#             */
-/*   Updated: 2019/07/14 00:01:10 by erwepifa         ###   ########.fr       */
+/*   Updated: 2019/07/15 21:42:12 by erwepifa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-
-
-char    **check_path(char **env)
+char	**check_path(char **env)
 {
-    int     i;
-    char    **envv;
+	int		i;
+	char	**envv;
 
-    i = 0;
-    if (!env)
-        return (NULL);
-    while (env[i] && ft_strncmp(env[i], "PATH=", 5) != 0)
-        i++;
+	i = 0;
+	if (!env)
+		return (NULL);
+	while (env[i] && ft_strncmp(env[i], "PATH=", 5) != 0)
+		i++;
 	if (env[i] == 0)
 		return (NULL);
-    envv = ft_strsplit(&env[i][5], ':');
-    return (envv);
+	envv = ft_strsplit(&env[i][5], ':');
+	return (envv);
 }
 
-int     check_tab(char **tab)
+int		check_tab(char **tab)
 {
-    if (access(*tab, F_OK) == -1)
-    {
-        ft_error("minishell: command not found: ", *tab);
-        return (-1);
-    }
-    if (access(*tab, X_OK) == -1)
-    {
-        ft_error("minishell: permission denied: ", *tab);
-        return (-1);
-    }
-    return (0);
+	if (access(*tab, F_OK) == -1)
+	{
+		ft_error("minishell: command not found: ", *tab);
+		return (-1);
+	}
+	if (access(*tab, X_OK) == -1)
+	{
+		ft_error("minishell: permission denied: ", *tab);
+		return (-1);
+	}
+	return (0);
 }
 
-int     run_cmd(char *name, char **env, char **tab)
+int		run_cmd(char *name, char **env, char **tab)
 {
-    pid_t pid;
+	pid_t	pid;
 
-    pid = fork();
-    if (pid == 0)
-    {
-        if (execve(name, tab, env) == -1)
-            return (-1);
-        return (0);
-    }
-    else
-        wait(&pid);
-    return (0);
+	pid = fork();
+	if (pid == 0)
+	{
+		if (execve(name, tab, env) == -1)
+			return (-1);
+		return (0);
+	}
+	else
+		wait(&pid);
+	return (0);
 }
 
-char 	**exec_final(char **cmd, char **env, char **tab)
+char	**exec_final(char **cmd, char **env, char **tab)
 {
-	char 	*ret;
-	char 	*name;
+	char	*ret;
+	char	*name;
 
 	if (ft_check_str(*tab, '/') == 1)
 	{
@@ -80,7 +78,7 @@ char 	**exec_final(char **cmd, char **env, char **tab)
 	if (run_cmd(name, env, tab) == -1)
 	{
 		ft_strdel(&name);
-		ft_error("something bad happened during the execution of ", *tab);;
+		ft_error("error ", *tab);
 		return (cmd);
 	}
 	ft_strdel(&name);

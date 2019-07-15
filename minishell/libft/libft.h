@@ -6,12 +6,13 @@
 /*   By: erwepifa <erwepifa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/15 12:31:26 by erwepifa          #+#    #+#             */
-/*   Updated: 2019/07/15 21:27:11 by erwepifa         ###   ########.fr       */
+/*   Updated: 2019/07/15 21:33:57 by erwepifa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# define BUFF_SIZE 1
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -21,21 +22,19 @@
 # include <sys/uio.h>
 # include <sys/types.h>
 
-# define BUFF_SIZE 1
-
-typedef struct	s_stock
+typedef struct		s_stock
 {
-	char		p[BUFF_SIZE + 1];
-	char		*save;
-	int			ret;
-	int			total;
-	char		*tmp_swap;
-	char		*result;
-	int			o;
-	int			i;
-}				t_stock;
+	char			p[BUFF_SIZE + 1];
+	char			*save;
+	int				ret;
+	int				total;
+	char			*tmp_swap;
+	char			*result;
+	int				o;
+	int				i;
+}					t_stock;
 
-typedef struct	s_flag
+typedef struct		s_flag
 {
 	int				rec;
 	int				r;
@@ -53,7 +52,7 @@ typedef struct	s_flag
 	char			*c;
 	char			*ret;
 	char			*hate;
-}				t_flag;
+}					t_flag;
 
 typedef struct		s_list
 {
@@ -132,10 +131,5 @@ char				**ft_strsplit(char const *s, char c);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
 t_list				*ft_lstnew(void	const *content, size_t content_size);
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
-
-
-
-
-
 
 #endif
