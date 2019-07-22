@@ -6,7 +6,7 @@
 #    By: erwepifa <erwepifa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 12:30:02 by erwepifa          #+#    #+#              #
-#    Updated: 2019/07/15 21:24:44 by erwepifa         ###   ########.fr        #
+#    Updated: 2019/07/15 22:34:57 by erwepifa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,17 +92,17 @@ NAME = libft.a
 all : $(NAME)
 
 $(NAME): $(OBJS)
-	ar rc $(NAME) $(OBJS)
-	ranlib $(NAME)
+	@ar rc $(NAME) $(OBJS)
+	@ranlib $(NAME)
 
 %.o: %.c
-		$(CC) $(FLAGS)  -c $^ -I $(HEADERS)
+		@$(CC) $(FLAGS)  -c $^ -I $(HEADERS)
 
 clean :
-		rm -rf $(OBJS)
+		@rm -rf $(OBJS)
 
 fclean : clean
-		rm -rf $(NAME)
+		@rm -rf $(NAME)
 
 re : fclean all
 
