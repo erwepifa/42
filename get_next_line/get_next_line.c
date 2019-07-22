@@ -6,7 +6,7 @@
 /*   By: erwepifa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 11:53:17 by erwepifa          #+#    #+#             */
-/*   Updated: 2018/12/20 15:50:48 by erwepifa         ###   ########.fr       */
+/*   Updated: 2019/07/22 22:56:42 by erwepifa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ int		get_next_line(const int fd, char **line)
 	static	char	*s[OPEN_MAX];
 
 	if (fd < 0 || !line || read(fd, buf, 0) < 0 || fd > OPEN_MAX)
+		return (-1);
+	if (BUFF_SIZE < 0)
 		return (-1);
 	while ((ret = read(fd, buf, BUFF_SIZE)) > 0)
 	{

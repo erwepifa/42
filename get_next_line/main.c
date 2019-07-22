@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erwepifa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/03 11:52:34 by erwepifa          #+#    #+#             */
-/*   Updated: 2019/07/22 22:56:50 by erwepifa         ###   ########.fr       */
+/*   Created: 2019/07/22 22:53:08 by erwepifa          #+#    #+#             */
+/*   Updated: 2019/07/22 22:53:16 by erwepifa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# include "libft/include/libft.h"
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <limits.h>
+#include "get_next_line.h"
+#include <fcntl.h>
 
-# define BUFF_SIZE 100000
+int		main(int argc, char **argv)
+{
+	int		fd;
+	char	*line;
 
-int		get_next_line(const int fd, char **line);
-
-#endif
+	if (argc == 1)
+		fd = 0;
+	else if (argc == 2)
+		fd = open(argv[1], O_RDONLY);
+	else
+		return (2);
+	while (get_next_line(fd, &line) == 1)
+	{
+		ft_putendl(line);
+		free(line);
+	}
+	if (argc == 2)
+		close(fd);
+}
