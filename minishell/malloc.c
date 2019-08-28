@@ -6,7 +6,7 @@
 /*   By: erwepifa <erwepifa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 19:43:13 by erwepifa          #+#    #+#             */
-/*   Updated: 2019/07/15 21:37:58 by erwepifa         ###   ########.fr       */
+/*   Updated: 2019/08/28 15:03:52 by erwepifa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	**malloc_setenv(char **env, char *tab)
 		i++;
 	}
 	ret[i++] = ft_strdup(tab);
-	free(env);
+	free_all_tab(env);
 	return (ret);
 }
 
@@ -54,6 +54,6 @@ char	**malloc_unsetenv(char **env, int value)
 	while (env[i])
 		ret[j++] = ft_strdup(env[i++]);
 	ret[j] = 0;
-	free(env);
+	free_all_tab(env);
 	return (ret);
 }
