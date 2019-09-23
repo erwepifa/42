@@ -6,7 +6,7 @@
 #    By: erwepifa <erwepifa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 12:30:02 by erwepifa          #+#    #+#              #
-#    Updated: 2019/07/15 22:34:57 by erwepifa         ###   ########.fr        #
+#    Updated: 2019/09/04 12:26:56 by erwepifa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,7 +85,7 @@ OBJS = $(SRCS:.c=.o)
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g3
 
 NAME = libft.a
 

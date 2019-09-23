@@ -6,7 +6,7 @@
 #    By: erwepifa <erwepifa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/17 13:47:27 by erwepifa          #+#    #+#              #
-#    Updated: 2019/07/13 21:37:23 by erwepifa         ###   ########.fr        #
+#    Updated: 2019/09/23 15:31:42 by erwepifa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 
 CC = @gcc $(INCLUDES) $(FLAGS)
 
-FLAGS = -Wall -Wextra -Werror -g
+FLAGS = -Wall -Wextra -Werror -g3
 
 NAME = minishell
 
@@ -27,7 +27,7 @@ LIBFT = libft/libft.a
 
 SRCS = 	main.c \
 		env.c \
-		malloc.c \
+		ft_malloc.c \
 		execute.c \
 		minishell.c \
 		options.c \
@@ -36,8 +36,7 @@ SRCS = 	main.c \
 		check_cd.c \
 		cd.c \
 		free_tab.c \
-
-
+		search_exec.c
 
 OBJS = $(SRCS:.c=.o)
 

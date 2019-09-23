@@ -6,7 +6,7 @@
 /*   By: erwepifa <erwepifa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 19:54:38 by erwepifa          #+#    #+#             */
-/*   Updated: 2019/07/15 21:51:30 by erwepifa         ###   ########.fr       */
+/*   Updated: 2019/09/23 15:33:51 by erwepifa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,13 @@ char	**set_env(char **tab, char **env)
 	int		i;
 	char	*tmp;
 
-	i = -1;
-	if (!tab[1])
-		print_env(env);
-	if (!tab[2] || tab[3])
+	i = 0;
+	if (!tab[1] || !tab[2] || tab[3])
 	{
 		ft_error("usage: setenv [variable] [argument]", NULL);
 		return (env);
 	}
-	while (env[++i])
+	while (env[i++])
 	{
 		if (ft_strnequ(tab[1], env[i], ft_strlen(tab[1])) == 1)
 		{
