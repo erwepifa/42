@@ -1,0 +1,27 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/signup.css">
+</head>
+
+<body>
+<%- include('../includes/navigation.ejs') %>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-75">
+            <h1>Reported Accounts</h1>
+        </div>
+        <% for(var i=0; i<user.length; i++) {%>
+            <dir>
+                <h2>User_id:  </h2> 
+                <a href="/user/profile/<%= user[i].reported_id %>">
+                        <p id="user"><%= user[i].reported_id %></p></a>
+                </a>
+                    <a href="/admin/delete/<%= user[i].reported_id %>"> <img src="/img/trash.svg" alt="Admirers"> </a>
+                        <% } %>
+            </dir>
+    </div>
+  
+</div>
+<%- include('../includes/end.ejs') %>
+</body>

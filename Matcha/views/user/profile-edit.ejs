@@ -1,0 +1,139 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/signup.css">
+</head>
+<!-- vvvv   MODIF DEMANDE PAR LE SUJET   vvv      
+              • Son genre                         gender
+              • Son orientation sexuelle          sexuality
+              • Une bio courte                    bio
+              • nom                               lastname
+              • prénom                            firstname
+
+              • localisation 
+              • Une liste d’interêts
+              • Images
+
+              • adresse emai                      email
+              • mot de passe
+
+
+
+              we have
+              firstname
+              lastname
+              email
+              bio
+              sexuality
+              gender
+
+-->
+
+
+<body>
+   <%- include('../includes/navigation.ejs') %>
+
+    <div class="container">
+      <form action="/user/edit-profile" method="POST" enctype="multipart/form-data">   
+            <div class="row">
+              <div class="col-25">
+                <label for="first-name">First Name:</label>
+              </div>
+              <div class="col-75">
+                        <input type="text" name="firstname" id="firstname" value="<%= user.firstname %>">
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col-25">
+                <label for="lastname">Last Name :</label>
+              </div>
+              <div class="col-75">
+                    <input type="text" name="lastname" id="lastname" value="<%= user.lastname %>">
+              </div>
+            </div>
+    
+            <div class="row">
+              <div class="col-25">
+                <label for="bio">Bio :</label>
+              </div>
+              <div class="col-75">
+                  <input type="text" name="bio" id="bio" value="<%= user.bio %>">
+              </div>
+            </div>
+    
+            <div class="row">
+              <div class="col-25">
+                <label for="bio">Interests :</label>
+              </div>
+              <div class="col-75">
+                  <input type="text" name="interests" id="interests" value="<%= user.interests %>">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-25">
+                <label for="sexuality">Looking for :</label>
+              </div>
+              <div class="col-75">
+                <select id="sexuality" name="sexuality">
+                  <option value="male">male</option>
+                  <option value="female">female</option>
+                  <option value="both">both</option>
+                  <option value="other">other</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col-25">
+                <label for="gender">Gender :</label>
+              </div>
+              <div class="col-75">
+                <select id="gender" name="gender">
+                  <option value="female">female</option>
+                  <option value="male">male</option>
+                  <option value="other">other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-25">
+                <label for="adress"> Adress :</label>
+              </div>
+              <div class="col-75">
+                <input type="text" id="adress" name="adress" placeholder="96 Boulevard bessieres" required>
+              </div>
+            </div>
+  
+            <div class="row">
+              <div class="col-25">
+                <label for="zipcode"> Zipcode :</label>
+              </div>
+              <div class="col-75">
+                <input type="text" id="zipcode" name="zipcode" placeholder="75017" required>
+              </div>
+            </div>
+
+            <div class="row">
+                <div class="col-25">
+                <label for="bio">Pictures :</label>
+              </div>
+                <div class="col-25" id="div1">
+                    <input type="file" name="pic" required/>
+                    <input type="file" name="pic1" />
+                    <input type="file" name="pic2" />
+                    <input type="file" name="pic3" />
+                    <input type="file" name="pic4" />
+                </div>
+            </div>
+  
+            <div class="row">
+              <input type="submit" value="Submit">
+            </div>
+          </form>
+          <!-- <a href="/user/loginfo">Modify Log information</a> -->
+          </div>
+          <a href="/user/loginfo">Modify Log information</a>
+
+<%- include('../includes/end.ejs') %>

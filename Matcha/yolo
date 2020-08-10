@@ -1,0 +1,20 @@
+exports.getReport = async (req, res, next) => {
+    if (req.session.userid == null || (userdetail = await swipereq.isDetailed(req.session.userid))[0][0].detailstat == 0)
+        return res.redirect('/login');
+    db.query('SELECT detailstat, mailstat from users where user_id = ? or user_id = ?', [req.session.userid, req.params.id]).then((results) => {
+        if (results[0].length > 1) {
+            if (results[0][0].detailstat && results[0][0].mailstat && results[0][1].detailstat && results[0][1].mailstat) {
+                db.query('SELECT reporter_id, reported_id FROM reports WHERE reporter_id = ? AND reported_id = ?', [req.session.userid, req.params.id]).then((results) => {
+                    if (!results[0].length) {
+                        db.query('DELETE FROM `likes` WHERE liker_id = ? AND liked_id = ?', [req.session.userid, req.params.id]);
+                        db.query('INSERT INTO reports (reporter_id, reported_id) VALUES (?, ?)', [req.session.userid, req.params.id]);
+                    }
+                    else
+                        db.query('DELETE FROM `reports` WHERE reporter_id = ? AND reported_id = ?', [req.session.userid, req.params.id]);
+                });
+            }
+        }
+    });
+    res.redirect(req.params.page.replace(/_/g, "\/"));
+
+}
