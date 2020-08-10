@@ -1,0 +1,19 @@
+--- FRONT ---
+`cd front`
+`npm install --silent`
+`npm run build`
+`npx sirv-cli start build -c -H 127.0.0.1 -p 3000 -s`
+
+--- BACK ---
+`cd back`
+
+`npm install --silent`
+start API: `npm start`
+
+/!\ if open new terminal, get docker env with: `eval $(docker-machine env <docker_machine_name>)` 
+
+start DB: `docker-compose up database`
+
+start cloud: `docker-compose up cloud`
+
+setup cloud: `docker-compose run setupCloud`
